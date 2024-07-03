@@ -7,10 +7,10 @@ import { NavigationContainer } from '@react-navigation/native';
 import Routes from './navigation/Routes';
 // import 'react-native-gesture-handler';
 
-const POCComponent = () => {
+const POCComponent = ({rootTag}) => {
   return (
     <NavigationContainer>
-      <Routes />
+      <Routes rootTag={rootTag}/>
     </NavigationContainer>
   );
 };
