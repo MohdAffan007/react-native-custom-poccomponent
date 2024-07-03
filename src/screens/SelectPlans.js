@@ -62,12 +62,23 @@ export default function SelectPlans({route}) {
       // };
       
       const handleConfirm = () => {
-        // if (isConfirmButtonEnabled) {
-        //     const selectedAppsData = mockDataApps.filter(app => selectedApps.includes(app.id));
-        //     const selectedAppsJson = JSON.stringify(selectedAppsData);
-        //     TestConnectNative?.goToSecondViewController?.(rootTag, selectedAppsJson);
-        // }
-    };
+        if (isConfirmButtonEnabled) {
+            const selectedAppsData = mockDataApps.filter(app => selectedApps.includes(app.id));
+            const selectedAppsJson = JSON.stringify(selectedAppsData);
+    
+            if (Platform.OS == 'ios') {
+                TestConnectNative?.goToSecondViewController?.(rootTag, selectedAppsJson);
+            } else {
+                Connectivity?.goToSecondActivity(selectedAppsJson)
+                    .then(response => {
+                        console.log('Navigation success:', response);
+                    })
+                    .catch(error => {
+                        console.log('Navigation error:', error);
+                    });
+            }
+        }
+    }
 
     const isConfirmButtonEnabled = selectedApps.length >= 6;
       return (
