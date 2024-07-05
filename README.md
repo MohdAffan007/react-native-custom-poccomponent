@@ -1,31 +1,111 @@
-# react-native-custom-poccomponent
+## **Native Bridging for iOS and Android in React Native  
 
-poc
+<br/>Prerequisites**[**​**](https://reactnative.dev/docs/integration-with-existing-apps#prerequisites)
 
-## Installation
+Follow the guide on [setting up your development environment](https://reactnative.dev/docs/set-up-your-environment) to configure your development environment for building React Native apps for Android and iOS.
 
-```sh
-npm install react-native-custom-poccomponent
-```
+Install React Native version 0.72.14  
+<br/>To install a specific version of React Native below command can be used:  
+<br/>npx react-native init newApp --version 0.72.14
 
-## Usage
+<br/>**After Installation**  
+Once React Native is installed, make sure to add the following packages in dev dependencies:  
+<br/>"@react-navigation/native": "^6.0.16",
 
-```js
-import { multiply } from 'react-native-custom-poccomponent';
+"@react-navigation/native-stack": "^6.9.4”,
 
-// ...
+"react-native-safe-area-context": "^4.4.1",
 
-const result = await multiply(3, 7);
-```
+"react-native-screens": "^3.18.2”,
 
-## Contributing
+For iOS, make sure to run pod install in the ios directory after adding the packages.  
 
-See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.
+**Bridging for iOS**  
+Refer to the below doc for native bridging - iOS:  
+[Integration with Existing Apps - iOS · React Native](https://reactnative.dev/docs/integration-with-existing-apps?language=swift)  
+After following the steps provided in the above doc for iOS bridging, add the below line inside the onTapped function in the view controller file to change the modal to screen:  
+<br/>To open React Native POC screen
 
-## License
+**@IBAction** **func** onTapped(_ sender: UIButton) {
 
-MIT
+**let** jsCodeLocation = URL(string: "<http://localhost:8081/index.bundle?platform=ios>")!
 
----
+**let** mockData:NSDictionary = \["accessToken":
 
-Made with [create-react-native-library](https://github.com/callstack/react-native-builder-bob)
+"&lt;accessToken&gt;"
+
+\]
+
+**let** rootView = RCTRootView(
+
+bundleURL: jsCodeLocation,
+
+moduleName: "POCScreen",
+
+initialProperties: mockData **as** \[NSObject : AnyObject\],
+
+launchOptions: **nil**
+
+)
+
+**let** vc = UIViewController()
+
+vc.view = rootView
+
+vc.modalPresentationStyle = .fullScreen
+
+**self**.present(vc, animated: **true**, completion: **nil**)
+
+}
+
+}
+
+<br/>**Bridging for Android  
+**  
+Refer to the below doc for native bridging - Android:  
+[Integration with Existing Apps - Android · React Native](https://reactnative.dev/docs/integration-with-existing-apps?language=java)  
+To open React Native POC screen:  
+
+Button button = findViewById(R.id.button);
+
+button.setOnClickListener(view -> {
+
+Intent intent = new Intent(MainActivity.this, MyReactActivity.class);
+
+Bundle intials = new Bundle();
+
+intials.putString("action", "&lt;accessToken&gt;");
+
+intials.putString("platform", "android");
+
+intent.putExtra("initialProps",intials);
+
+startActivity(intent);
+
+});
+
+**MyReactActivity.java**
+
+Make sure to add .setJavaScriptExecutorFactory(new HermesExecutorFactory()) in mReactInstanceManager
+
+mReactInstanceManager = ReactInstanceManager._builder_()
+
+.addPackage(new ConnectivityPackage())
+
+.setApplication(getApplication())
+
+.setCurrentActivity(this)
+
+.setBundleAssetName("index.android.bundle")
+
+.setJSMainModulePath("index")
+
+.addPackages(packages)
+
+.setUseDeveloperSupport(BuildConfig._DEBUG_)
+
+.setInitialLifecycleState(LifecycleState._RESUMED_)
+
+.setJavaScriptExecutorFactory(new HermesExecutorFactory())
+
+.build();
