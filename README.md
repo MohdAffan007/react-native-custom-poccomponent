@@ -28,6 +28,7 @@ Refer to the below doc for native bridging - iOS:
 After following the steps provided in the above doc for iOS bridging, add the below line inside the onTapped function in the view controller file to change the modal to screen:  
 <br/>To open React Native POC screen
 
+```sh 
 **@IBAction** **func** onTapped(_ sender: UIButton) {
 
 **let** jsCodeLocation = URL(string: "<http://localhost:8081/index.bundle?platform=ios>")!
@@ -61,6 +62,8 @@ vc.modalPresentationStyle = .fullScreen
 }
 
 }
+```
+
 
 <br/>**Bridging for Android  
 **  
@@ -68,6 +71,7 @@ Refer to the below doc for native bridging - Android:
 [Integration with Existing Apps - Android · React Native](https://reactnative.dev/docs/integration-with-existing-apps?language=java)  
 To open React Native POC screen:  
 
+```sh 
 Button button = findViewById(R.id.button);
 
 button.setOnClickListener(view -> {
@@ -85,11 +89,14 @@ intent.putExtra("initialProps",intials);
 startActivity(intent);
 
 });
+```
+
 
 **MyReactActivity.java**
 
 Make sure to add .setJavaScriptExecutorFactory(new HermesExecutorFactory()) in mReactInstanceManager
 
+```sh 
 mReactInstanceManager = ReactInstanceManager._builder_()
 
 .addPackage(new ConnectivityPackage())
@@ -111,3 +118,4 @@ mReactInstanceManager = ReactInstanceManager._builder_()
 .setJavaScriptExecutorFactory(new HermesExecutorFactory())
 
 .build();
+```

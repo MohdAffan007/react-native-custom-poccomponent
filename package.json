@@ -41,7 +41,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MohdAffan007/react-native-custom-components-next.git/react-native-custom-poccomponent.git"
+    "url": "https://github.com/MohdAffan007/react-native-custom-components-next.git/react-native-custom-poccomponent.git"
   },
   "author": "TTN <mohammad.affan@tothenew.com> (https://github.com/MohdAffan007/react-native-custom-components-next.git)",
   "license": "MIT",
