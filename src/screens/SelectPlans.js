@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native';
 import React, { useState } from 'react';
 import {
     SafeAreaView,
@@ -12,6 +13,7 @@ import {
     ScrollView
   } from "react-native";
 export default function SelectPlans({route}) {
+  const navigation = useNavigation();
   const {TestConnectNative} = NativeModules
   const rootTag=route?.params?.rootTag;
     const Connectivity = NativeModules?.Connectivity
@@ -39,7 +41,7 @@ export default function SelectPlans({route}) {
           if (prevSelectedApps.includes(id)) {
             return prevSelectedApps.filter(appId => appId !== id);
           } else {
-            return prevSelectedApps.length < 6 ? [...prevSelectedApps, id] : prevSelectedApps;
+            return prevSelectedApps.length < 8 ? [...prevSelectedApps, id] : prevSelectedApps;
           }
         });
       };
@@ -64,23 +66,11 @@ export default function SelectPlans({route}) {
       const handleConfirm = () => {
         if (isConfirmButtonEnabled) {
             const selectedAppsData = mockDataApps.filter(app => selectedApps.includes(app.id));
-            const selectedAppsJson = JSON.stringify(selectedAppsData);
-    
-            if (Platform.OS == 'ios') {
-                TestConnectNative?.goToSecondViewController?.(rootTag, selectedAppsJson);
-            } else {
-                Connectivity?.goToSecondActivity(selectedAppsJson)
-                    .then(response => {
-                        console.log('Navigation success:', response);
-                    })
-                    .catch(error => {
-                        console.log('Navigation error:', error);
-                    });
-            }
+            navigation.navigate('YourSelectedPlans', { selectedApps: selectedAppsData })
         }
     }
 
-    const isConfirmButtonEnabled = selectedApps.length >= 6;
+    const isConfirmButtonEnabled = selectedApps.length > 0;
       return (
         <ScrollView>
         <SafeAreaView style={[styles.container, { }]}>

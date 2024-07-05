@@ -10,13 +10,15 @@ Install React Native version 0.72.14
 
 <br/>**After Installation**  
 Once React Native is installed, make sure to add the following packages in dev dependencies:  
-<br/>"@react-navigation/native": "^6.0.16",
+```sh 
+"@react-navigation/native": "^6.0.16",
 
 "@react-navigation/native-stack": "^6.9.4”,
 
 "react-native-safe-area-context": "^4.4.1",
 
 "react-native-screens": "^3.18.2”,
+```
 
 For iOS, make sure to run pod install in the ios directory after adding the packages.  
 

@@ -44,8 +44,9 @@ const renderItem = ({ item }) => (
 );
 
 
-export default function ChooseYourPlan(props) {
-
+export default function ChooseYourPlan({route}) {
+  const androidProps=route?.params?.androidProps;
+  // console.log('acessToken',androidProps)
   const navigation = useNavigation();
   // const { action, platform } = props?.initialProps;
   return (
