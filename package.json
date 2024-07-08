@@ -1,6 +1,6 @@
 {
   "name": "react-native-custom-poccomponent",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "description": "poc",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -41,14 +41,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/MohdAffan007/react-native-custom-components-next.git/react-native-custom-poccomponent.git"
+    "url": "https://github.com/MohdAffan007/react-native-custom-poccomponent"
   },
   "author": "TTN <mohammad.affan@tothenew.com> (https://github.com/MohdAffan007/react-native-custom-components-next.git)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/MohdAffan007/react-native-custom-components-next.git/react-native-custom-poccomponent/issues"
+    "url": "https://github.com/MohdAffan007/react-native-custom-poccomponent/issues"
   },
-  "homepage": "https://github.com/MohdAffan007/react-native-custom-components-next.git/react-native-custom-poccomponent#readme",
+  "homepage": "https://github.com/MohdAffan007/react-native-custom-poccomponent#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
