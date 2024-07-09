@@ -69,7 +69,8 @@ vc.modalPresentationStyle = .fullScreen
 **  
 Refer to the below doc for native bridging - Android:  
 [Integration with Existing Apps - Android · React Native](https://reactnative.dev/docs/integration-with-existing-apps?language=java)  
-To open React Native POC screen:  
+For navigation from "native android to react native" and "react native to native android", need to add two files (Connectivity.java and ConnectivityPackage.java) in native android code, which is available under assets folder (src/assets/androidResources).
+To open React Native POC screen:   
 
 ```sh 
 Button button = findViewById(R.id.button);
