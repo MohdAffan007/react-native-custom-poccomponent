@@ -9,18 +9,28 @@ import {
   BackHandler,
   NativeModules,
   FlatList,
+  Image,
   ScrollView
 } from "react-native";
+import { manageAppList } from '../assets/mockDataJson/manageapp';
 
-  const mockDataApps = [
-    { id: '1', title: 'Prime', },
-    { id: '2', title: 'Disney' },
-    { id: '3', title: 'Zee',  },
-    { id: '4', title: 'Sony',},
-    { id: '5', title: 'Netflix',},
-    { id: '6', title: 'Colors',},
-  ];
+// console.log(manageAppList.a)
+const mockDataApps = [
+  { id: '1', title: 'Prime', },
+  { id: '2', title: 'Disney' },
+  { id: '3', title: 'Zee', },
+  { id: '4', title: 'Sony', },
+  { id: '5', title: 'Netflix', },
+  { id: '6', title: 'Colors', },
+];
 
+const mockDataApp = [
+  { id: '1', imageUrl: 'https://uatmanageapps.tataplay.com/cms-assets/images/devices_banner.png', title: 'Watch on upto 4 devices at a time' },
+  { id: '2', imageUrl: 'https://uatmanageapps.tataplay.com/cms-assets/images/cricket_new.png', title: 'Live cricket, tennis and more' },
+  { id: '3', imageUrl: 'https://uatmanageapps.tataplay.com/cms-assets/images/live_tv.png', title: 'Live TV channels on the go' },
+  { id: '4', imageUrl: 'https://uatmanageapps.tataplay.com/cms-assets/images/gaming_banner.png', title: 'Gaming with all the plans' },
+  { id: '5', imageUrl: 'https://uatmanageapps.tataplay.com/cms-assets/images/sign_banner.png', title: 'Single login, single payment' },
+]
 
 const renderItemApps = ({ item }) => (
   <View style={styles.itemApps}>
@@ -37,9 +47,14 @@ const handleBackButton = () => {
 };
 
 const renderItem = ({ item }) => (
-  <View style={styles.item}>
+  <View style={[styles.item, { alignItems: 'center',  }]}>
+    <Image
+      style={styles.image}
+      source={{ uri: item.imageUrl }}
+      resizeMode="cover"
+    />
     <Text style={styles.title}>{item.title}</Text>
-    <Text style={styles.description}>{item.description}</Text>
+
   </View>
 );
 
@@ -51,16 +66,17 @@ export default function ChooseYourPlan({route}) {
   // const { action, platform } = props?.initialProps;
   return (
     <ScrollView style={{backgroundColor:'black'}}>
-    <View style={[styles.container,{}]}>
-      <FlatList
-      data={mockDataApps}
-      horizontal
-      showsHorizontalScrollIndicator={false}
-      keyExtractor={(item) => item.id}
-      renderItem={renderItem}
-      contentContainerStyle={styles.listContainer}
-    />
-      {/* <Text style={styles.highScoresTitle}>Choose a plan to watch</Text>
+      <View style={{ backgroundColor: 'black' }}>
+        <View style={[styles.container, {}]}>
+          <FlatList
+            data={mockDataApp}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            keyExtractor={(item) => item.id}
+            renderItem={renderItem}
+            contentContainerStyle={styles.listContainer}
+          />
+          {/* <Text style={styles.highScoresTitle}>Choose a plan to watch</Text>
       <Text style={styles.highScoresTitle}>
      Some Text
       </Text>
@@ -76,31 +92,39 @@ export default function ChooseYourPlan({route}) {
           Move To Second RN Screen
         </Text>
       </TouchableOpacity> */}
-    </View>
-    <View style={{backgroundColor:'black', marginTop:10, padding:20}}>
-      <Text style={{color:'white'}}>FLexi Plans</Text>
-      <View style={{backgroundColor:'white', marginTop:20, borderRadius:8, padding:5}}>
-        <View style={{flexDirection:'row', justifyContent:'space-between'}}>
-          <Text style={{color:'black'}}>Flexi Plus</Text>
-          <Text style={{color:'black'}}>New</Text>
         </View>
-        <Text style={{alignSelf:'center', fontSize:15, fontWeight:'bold'}}>Any 6 OTT Apps at 199</Text>
-        <Text style={{alignSelf:'center', marginTop:10, color:'black'}}>Watch on 4 devices at a time | TV, laptop & mobile</Text>
-        <FlatList
-      data={mockDataApps}
-      showsHorizontalScrollIndicator={false}
-      keyExtractor={(item) => item.id}
-      renderItem={renderItemApps}
-      contentContainerStyle={styles.listContainer}
-      numColumns={3}
-    />
-    <Text style={{alignSelf:'center', fontSize:10, color:'black'}}>& Many More Apps</Text>
-    <TouchableOpacity style={{ backgroundColor: 'lavender', alignItems:'center', borderRadius:3, paddingVertical:10, margin:15}} onPress={()=>navigation.navigate('SelectPlans')} >
-      <Text style={{color:'black'}}>Choose Your Apps</Text>
-    </TouchableOpacity>
+        <View style={{ backgroundColor: 'black', marginTop: 5, paddingHorizontal: 20,paddingBottom:20 }}>
+          {/* <Text style={{ color: 'white' }}>FLexi Plans</Text> */}
+          <View style={{ backgroundColor: 'white', marginTop: 20, borderRadius: 8, backgroundColor: 'rgba(241, 231, 250, 100)', }}>
+
+            <Image
+              style={styles.imageFlexi}
+              source={require('../assets/images/flexiPlan149.jpg')}
+              resizeMode="cover" />
+
+            <TouchableOpacity style={{ backgroundColor: 'rgba(225, 0, 146, 100)', alignItems: 'center', borderRadius: 3, paddingVertical: 10, margin: 15 }} onPress={() => navigation.navigate('SelectPlans', {appList:manageAppList[0].appList, packPrice:149.0,})} >
+              <Text style={{ color: 'white' }}>Choose Your Apps</Text>
+            </TouchableOpacity>
+
+
+          </View>
+          <View style={{ backgroundColor: 'white', marginTop: 20, borderRadius: 8, backgroundColor: 'rgba(241, 231, 250, 100)', }}>
+
+            <Image
+              style={styles.imageFlexi}
+              source={require('../assets/images/flexPlan199.jpg')}
+              resizeMode="cover" />
+
+            <TouchableOpacity style={{ backgroundColor: 'rgba(225, 0, 146, 100)', alignItems: 'center', borderRadius: 3, paddingVertical: 10, margin: 15 }} onPress={() => navigation.navigate('SelectPlans', {appList:manageAppList[1].appList,packPrice:199.0})} >
+              <Text style={{ color: 'white' }}>Choose Your Apps</Text>
+            </TouchableOpacity>
+
+
+          </View>
+        </View>
       </View>
-    </View>
     </ScrollView>
+
   );
 };
 
@@ -123,33 +147,54 @@ const styles = StyleSheet.create({
   },
   listContainer: {
     paddingVertical: 16,
-    alignSelf:'center'
+    alignSelf: 'center'
   },
   item: {
-    backgroundColor: 'white',
+    backgroundColor: 'rgba(34, 0, 70, 100)',
     marginHorizontal: 10,
     padding: 20,
-    width: 100,
-    height:100,
-    margin:10
+    width: 150,
+    height: 150,
+    margin: 10
   },
   itemApps: {
-    borderRadius:5,
+    borderRadius: 5,
     backgroundColor: 'lavender',
-justifyContent:'center',
+    justifyContent: 'center',
     padding: 20,
     width: 90,
-    height:90,
-    margin:10,
-    alignItems:'center'
+    height: 90,
+    margin: 10,
+    alignItems: 'center'
   },
   title: {
-    fontSize: 16,
+    fontSize: 12,
     fontWeight: 'bold',
+    color: 'white',
+    textAlign:'center'
+    // alignSelf:'center'
   },
   titleApps: {
     fontSize: 15,
     fontWeight: 'bold',
   },
-  
+  image: {
+    width: 50,
+    height: 50,
+    borderRadius: 5,
+    marginBottom: 20
+  },
+  imageFlexi: {
+    width: '100%',
+    height: 200,
+    // backgroundColor: 'red',
+    borderRadius: 5
+  },
+  imageFlexi199: {
+    width: '100%',
+    height: 200,
+    // backgroundColor: 'red',
+    borderRadius: 5,
+    marginTop: 20
+  }
 });
