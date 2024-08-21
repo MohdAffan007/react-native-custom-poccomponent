@@ -18,6 +18,16 @@ Once React Native is installed, make sure to add the following packages in dev d
 "react-native-safe-area-context": "^4.4.1",
 
 "react-native-screens": "^3.18.2”,
+
+"@react-native-community/netinfo": "^11.3.2",
+
+"react-native-svg": "^15.5.0",
+
+"react-redux": "^8.0.5",
+
+"redux": "^4.2.0",
+
+"redux-thunk": "^2.4.2"
 ```
 
 For iOS, make sure to run pod install in the ios directory after adding the packages.  

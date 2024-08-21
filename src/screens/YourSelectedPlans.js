@@ -1,24 +1,52 @@
-import { FlatList, Image, NativeModules, Platform, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import React, { useState } from 'react'
+import { FlatList, Image, NativeModules, Platform, SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import React, { useEffect, useState } from 'react'
 import { useNavigation } from '@react-navigation/native';
+import { AppConstant } from '../assets/AppConstant';
+import { serviceConsts } from '../services/serviceCommonHandler';
+import { SvgUri } from 'react-native-svg';
+
+const appIconsWidths = ((AppConstant.dimension.width - 40 - 36 - (4 * 15)) / 5)
 export default function YourSelectedPlans({ route }) {
-  const { selectedApps ,selectedAppsJson,packPrice} = route.params;
-  console.log(selectedApps,'selectedAppsssss')
+  const { selectedApps, selectedAppsJson, packPrice } = route.params;
+  console.log(selectedApps, 'selectedAppsssss')
   const { TestConnectNative } = NativeModules
   const rootTag = route?.params?.rootTag;
   const Connectivity = NativeModules?.Connectivity
   const navigation = useNavigation();
+  const [belowMsg, setBelowMsg] = useState('')
+
+  useEffect(() => {
+    let isAmazon = false;
+    let isSunNext = false;
+
+    isAmazon = selectedApps?.filter(innerItem => innerItem?.appName == "Prime")?.length > 0
+    isSunNext = selectedApps?.filter(innerItem => innerItem?.appName == "SunNxt")?.length > 0
+
+    let belowMsgTemp = ""
+    if (isAmazon && AppConstant.getDrupalInfoToInnerApis().primeText != null) {
+      belowMsgTemp += AppConstant.getDrupalInfoToInnerApis().primeText
+    }
+    if (isSunNext && AppConstant.getDrupalInfoToInnerApis().sunNxtText != null) {
+      belowMsgTemp += AppConstant.getDrupalInfoToInnerApis().sunNxtText
+    }
+
+    belowMsgTemp += route?.params?.item?.appOnTv ?? ''
+
+    setBelowMsg(AppConstant.replaceAll(belowMsgTemp, '#', '\n'))
+  }, [])
+
+  AppConstant.showConsoleLog('---------:', route?.params)
 
   const renderItemApps = ({ item }) => {
     const isSelected = selectedApps.includes(item.id);
-    console.log(item,'itemmmmmm')
+    console.log(item, 'itemmmmmm')
     return (
       <View
         style={[styles.itemApps]}
       >
-        <Image    style={styles.imageFlexi199}
-              source={{uri:(`https://uatmanageapps.tataplay.com/cms-assets/images/${item.appId}.png`)}}
-              resizeMode="cover"/>
+        <Image style={styles.imageFlexi199}
+          source={{ uri: (`https://uatmanageapps.tataplay.com/cms-assets/images/${item.appId}.png`) }}
+          resizeMode="cover" />
       </View>
     );
   };
@@ -31,17 +59,17 @@ export default function YourSelectedPlans({ route }) {
 
   // };
   const handleConfirm = () => {
-    console.log(selectedAppsJson,'selectedAppsJson')
+    console.log(selectedAppsJson, 'selectedAppsJson')
     if (Platform.OS == 'ios') {
-        TestConnectNative?.goToSecondViewController?.(rootTag, selectedAppsJson);
+      TestConnectNative?.goToSecondViewController?.(rootTag, JSON.stringify([]));
     } else {
-        Connectivity?.goToSecondActivity(selectedAppsJson)
-            .then(response => {
-                console.log('Navigation success:', response);
-            })
-            .catch(error => {
-                console.log('Navigation error:', error);
-            });
+      Connectivity?.goToSecondActivity(JSON.stringify([]))
+        .then(response => {
+          console.log('Navigation success:', response);
+        })
+        .catch(error => {
+          console.log('Navigation error:', error);
+        });
     }
   }
 
@@ -49,37 +77,189 @@ export default function YourSelectedPlans({ route }) {
   // const selectedAppsJson = JSON.stringify(selectedAppsDataIos);
   // TestConnectNative?.goToSecondViewController?.(rootTag, selectedAppsJson);
   return (
-    <View style={[styles.container, { backgroundColor: 'black' }]}>
+    <View style={[{ backgroundColor: 'black', paddingHorizontal: 20, flexGrow: 1, width: '100%', }]}>
 
-      <View style={{ backgroundColor: 'black', height: "100%", justifyContent: 'space-between' }}>
-        <View >
-          <View style={{ backgroundColor: 'lavender', marginTop: 30, borderRadius: 8, padding: 5, margin: 20 }}>
-            <Text style={{ marginHorizontal: 5, marginTop: 15 }}>Flexi Plus</Text>
-            <Text style={{ marginHorizontal: 5, marginTop: 5 }}>6 apps | upto 4 devices at a time</Text>
-            <Text style={{ marginHorizontal: 5, marginTop: 5 }}>Watch on Tv, Laptop & Mobile</Text>
+      <ScrollView style={{
+        width: '100%',
+        flex: 1,
+      }}
+        bounces={false}
+        contentContainerStyle={{
+          flexGrow: 1,
+          // justifyContent: 'flex-end',
+        }}>
 
-            <FlatList
-              data={selectedApps}
-              showsHorizontalScrollIndicator={false}
-              keyExtractor={(item) => item.id}
-              renderItem={renderItemApps}
-              contentContainerStyle={styles.listContainer}
-              numColumns={4}
-            />
-            <Text style={{ marginHorizontal: 20, color: 'grey' }}>You can change 1 app every month </Text>
+        <View
+          style={{
+            width: '100%',
+            marginTop: 15,
+            backgroundColor: '#efe8fb',
+            borderRadius: 10,
+            paddingHorizontal: 13,
+            paddingVertical: 16
+          }}
+
+        >
+
+          <View style={{
+            flexDirection: 'row',
+            alignItems: 'center'
+          }}>
+            {
+              AppConstant.getDrupalInfoToInnerApis()?.field_crownImg != null &&
+              // <Image
+              //   style={{
+              //     width: 25,
+              //     height: 25,
+              //     resizeMode: 'cover',
+              //     backgroundColor: 'red'
+              //   }}
+              //   source={{ uri: AppConstant.getDrupalInfoToInnerApis()?.field_crownImg }}
+              // // resizeMode="cover"
+              // />
+              <SvgUri
+                width="25"
+                height="25"
+                uri={AppConstant.getDrupalInfoToInnerApis()?.field_crownImg}
+              // uri="https://uatmanageapps.tataplay.com/cms-assets/images/crownBg.svg"
+              />
+            }
+
+            <Text style={{
+              flex: 1,
+              fontSize: 16,
+              color: "#220046",
+              // fontWeight: 'bold',
+              textAlign: 'left',
+              marginLeft: 10
+            }}>{route?.params?.item.packName}</Text>
+
+
           </View>
-          <Text  style={{ marginHorizontal: 20, marginTop: 5, color:'white', fontSize:12 }}>*Amazon Prime lite with Tata Play Binge includes HD (720p) streaming on 2 devices (TV/Mobile) and FREE 1-day delivery</Text>
-          <Text  style={{ marginHorizontal: 20, marginTop: 5, color:'white', fontSize:12 }}>*Sun Nxt willl be availble on TV only</Text>
-          <Text  style={{ marginHorizontal: 20, marginTop: 5, color:'white', fontSize:12 }}>*Watch on TV with Amazon Fire Stick, Smart TV or Tata Play Binge+ Set Top Box</Text>
-          
-        </View>
-        <View style={[styles.enabledButton, { flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 25 }]} >
-          <Text style={{color:'white'}}>₹{packPrice}/month</Text>
-          <TouchableOpacity onPress={handleConfirm} style={{ backgroundColor: 'purple', padding: 10, borderRadius: 4 }} >
-            <Text style={{ color: 'white' }}>Confirm & Proceed</Text>
-          </TouchableOpacity>
+
+          <Text style={{
+            marginTop: 10,
+            fontSize: 15,
+            color: "#220046",
+            textAlign: 'left',
+            fontWeight: '500',
+          }}>
+            <Text style={{
+              fontSize: 18,
+              fontWeight: 'bold',
+            }}>
+              {`${route?.params?.selectedApps?.length}`}
+            </Text>
+            {' apps | upto '}
+            <Text style={{
+              fontSize: 18,
+              fontWeight: 'bold',
+            }}>
+              {`${route?.params?.item?.totalDevices}`}
+            </Text>
+            {' devices at a time'}
+          </Text>
+
+          {
+            route?.params?.item?.deviceListInfo != null &&
+            <View style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+              marginTop: 10
+            }}>
+              {
+                route?.params?.item?.deviceListInfo?.img != null &&
+                // <Image
+                //   style={{
+                //     width: 40,
+                //     height: 25,
+                //     resizeMode: 'cover',
+                //     backgroundColor: 'red'
+                //   }}
+                //   source={{ uri: route?.params?.item?.deviceListInfo?.img }}
+                // // resizeMode="cover"
+                // />
+                <SvgUri
+                  width="40"
+                  height="25"
+                  uri={route?.params?.item?.deviceListInfo?.img}
+                // uri="https://uatmanageapps.tataplay.com/cms-assets/images/crownBg.svg"
+                />
+              }
+
+              <Text style={{
+                flex: 1,
+                fontSize: 15,
+                color: "#220046",
+                fontWeight: '600',
+                textAlign: 'left',
+                marginLeft: 10
+              }}>{`Watch on ${route?.params?.item?.deviceListInfo?.title}`}</Text>
+            </View>
+          }
+
+          <View style={{
+            flexDirection: 'row',
+            flexWrap: 'wrap'
+          }}>
+            {
+              route?.params?.selectedApps?.map((applistItem, index) => {
+                return <Image
+                  key={`${applistItem?.appID}_${index}`}
+                  style={{
+                    marginTop: 15,
+                    marginLeft: index % 5 == 0 ? 0 : 15,
+                    width: appIconsWidths,
+                    height: appIconsWidths,
+                    resizeMode: 'cover',
+                    // backgroundColor: 'red'
+                  }}
+                  source={{ uri: serviceConsts.baseUrls.imageBaseUrl + applistItem?.appId + '.png' }}
+                // resizeMode="cover"
+                />
+              }
+              )
+            }
+          </View>
+
+          {
+            belowMsg != "" &&
+            <Text style={{
+              width: '100%',
+              fontSize: 12,
+              color: "#220046",
+              fontWeight: '500',
+              textAlign: 'left',
+              marginTop: 10,
+              lineHeight: 20
+            }}>{belowMsg}</Text>
+          }
+
+          {/* <Text style={{
+            marginTop: 10,
+            backgroundColor: '#e10092',
+            color: '#ffffff',
+            fontWeight: '700',
+            width: '100%',
+            textAlign: 'center',
+            lineHeight: 40,
+            fontSize: 16,
+            borderRadius: 4
+          }}>
+            Choose Plan
+          </Text> */}
+
 
         </View>
+
+      </ScrollView>
+
+      <View style={[styles.enabledButton, { flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 25 }]} >
+        <Text style={{ color: 'white' }}>₹{packPrice}/month</Text>
+        <TouchableOpacity onPress={handleConfirm} style={{ backgroundColor: 'purple', padding: 10, borderRadius: 4 }} >
+          <Text style={{ color: 'white' }}>Confirm & Proceed</Text>
+        </TouchableOpacity>
+
       </View>
 
     </View>
