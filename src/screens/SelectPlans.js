@@ -12,7 +12,9 @@ import {
   FlatList,
   Image,
   ScrollView,
-  ActivityIndicator
+  ActivityIndicator,
+  Platform,
+  ToastAndroid
 } from "react-native";
 import { AppConstant } from '../assets/AppConstant';
 import { useDispatch, useSelector } from 'react-redux';
@@ -128,8 +130,12 @@ export default function SelectPlans({ route }) {
     setSelectedApps((prevSelectedApps) => {
       if (prevSelectedApps.includes(id)) {
         return prevSelectedApps.filter(appId => appId !== id);
-      } else {
+      } else if (prevSelectedApps.length < route?.params?.item?.totalApps?.BUCKET1?.max) {
         return prevSelectedApps.length < route?.params?.item?.totalApps?.BUCKET1?.max ? [...prevSelectedApps, id] : prevSelectedApps;
+      } else {
+        Platform.OS == 'android' && ToastAndroid.show(`You have already selected ${route?.params?.item?.totalApps?.BUCKET1?.max} Apps. Remove one app to select this one.`, ToastAndroid.SHORT);
+        return prevSelectedApps;
+
       }
     });
   };
