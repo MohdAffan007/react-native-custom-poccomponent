@@ -68,7 +68,10 @@ export default function ChooseYourPlan({ route }) {
 
   useEffect(() => {
     // AppConstant.setUserAccessToken(androidProps)
-    AppConstant.setChecksumToken("3HJCB79jPM5Re0tpi48rJw38Ay8tK4zardUdX2zmXZfUEqlrjoCob@slash@e6D03cgUXIieW6@plus@R@slash@OpUObqz1vcABvcXHYheSUzviw@slash@WJyUOfsJg5C1h6HYhkmVD@slash@DQ35IENy@plus@awO0er0esX7q0J8ARZ@slash@z7OshVckh@plus@bLhu6yb3dEsmEg0xAX2qVtCWLDw9Z2SYxnIki@slash@f7iKNgR5kf085PMQYmoF6r@slash@@slash@dafqXs@slash@z4RSIrnWrA9kagk1sRdjwRi7Oos@plus@40BSYLFDoMr7YS1pGBFs5BDgrZo8cnbEzrF8PpaIhigA9bZ0q9ua9GTBgq9BWX1QF7qqlCdMi@plus@H7D0B7UCX8C@slash@jhvMLyH0kam01gbkuqtjYpJxuhe0Jg93pLcNB7CZqpu0RTnnCOV0BY8OM0TAkgryO12cN0GgDVqm7M67XVMalhKgSSkwOL4Dw5cyOYdhudrUj4AQGudyUPj9Y1mGySXzRHDAIWXlxC@slash@qXOEw@plus@c6GvHEy73@plus@b4Jj83ealsnFQl39kir3BcBicL0p0L1AMeuVeWJ@slash@@plus@8gytYMR4iCh1Htb9H76NgycysZ7YlfyiD7SzZRq5OJiRNumadjQX8ZtG9hPPdQ9iUtCPrZTKJhjxM0v2@plus@Nwjwh6@plus@e2@slash@7nOQxNVt68L6onYDw7azLtyLzWobZXReiVh6RTjV74k0VSXgo86e@plus@nvMiVCaYbx@slash@0Unx6@plus@kEzFu@slash@aFghrUwtycvfS@slash@zvSdomU4m1efUpHje7CGqyoa94Jv3uOWo0pLqv8@slash@2VaoamGayamt9dH3ZTgzW@slash@QyGKCQ5xnSSyBX3JKcUsDCtk@slash@7RsCGtDEGVHSgHI6UmN3PBFNFJjH0Gx5ACUpgsDXWOj2GnGfYq@plus@xJfBrIJgEX3gow7dRKLzJUOCIy4n82z5fBhPNhk34tlfKti43tOSP8Y41Fm@plus@@plus@5M3HExCV@plus@bC2@plus@gv5neSPcnzxlfqV3Dkw11xiduRNAWNsDjv0eUiSnHCq0I7z4WMIyOeh@slash@02RHcbJ6p62yfgWomPHJ8oIr7BrsQ8Bim@slash@TyN9C")
+    AppConstant.setChecksumToken("f6LgKFlH4tOue7Rr7YtLBZgSRrnj0wf@slash@bz5@slash@y1rWs69@slash@Q7oS3u7h5JGYP2@slash@FAkdX4zonsS7jhG3BVHGg5JBsg4d8Py@plus@vIyiDKAi1wc8pwhp3lV8Lsa162cQkNMbo3FfRN8OQKwypyo2BC@slash@VraKhKPOBX4pEhsvJlwQZBK2CpfpLL@plus@9wbmA9sIKzYv4jpsP14cDr1WC8O17VVtfJTNHxbmNlyb4BLK@plus@3Ksj40nnNEwDcOjdfhrc5sL2AAPBsOoHsVy@plus@ff4s5tEj48fg3LH@slash@Y5DOX7QcVuKev4@slash@IFqiCtb7S3uzJHbRIYqTiQCaeppKJdc@slash@BlhK31LI4MSqjqeknTGTlKVnKwpRT5uaRLEbpSFFrt@plus@4I5UUs7fn@slash@3W9RAfVI5sNl@slash@FzQ8A@plus@eKBum7gTf0VOTLmoCTJNqPlQ0F4pTJj7Iac@slash@XdaEZBMSWBmJvWi@slash@OZq9oKoNA5r1BYSrTEg4ZUjNT@plus@cwSe6DvJhBogET8DRhSp@slash@eaOVIUA06a@plus@tCVwHWkiT3mstUwV0fHgmNZgSuajb8RRIVKtddsLVVKUzOGwzFF0HeLwK19TzhCFbaoo2mY3TQGoPlNjfeGJGWBhlbj3Ac3WiJX4sI3evRLXcwqgK9@plus@x1pLfHUOfCuXkNWka7n4rWXVTXHD5ZjfA5Zd2adntL7pN6lXc4t@plus@cQt7fA6U41MgvGZG4G4I5OtUMjL5NB0ykSL1b7lylp2MCNCeyVzn5P5fMH95FGiDwjF3H@slash@uBbjJlOoDvGAi5T6pBTO5VAKvDRUzccTEJX5sLb6C@slash@md5I9yfOmh1zPzXq288@slash@3D0SYknQcdMIF9iDApkrnSy3cD8U@plus@uEUNBDv@plus@iERVEZzRDevdSluVVRU@slash@JhCgH1pyVLKmhtfc")
+
+    // AppConstant.setChecksumToken("3HJCB79jPM5Re0tpi48rJw38Ay8tK4zardUdX2zmXZfUEqlrjoCob@slash@e6D03cgUXIieW6@plus@R@slash@OpUObqz1vcABvcXHYheSUzviw@slash@WJyUOfsJg5C1h6HYhkmVD@slash@DQ35IENy@plus@awO0er0esX7q0J8ARZ@slash@z7OshVckh@plus@bLhu6yb3dEsmEg0xAX2qVtCWLDw9Z2SYxnIki@slash@f7iKNgR5kf085PMQYmoF6r@slash@@slash@dafqXs@slash@z4RSIrnWrA9kagk1sRdjwRi7Oos@plus@40BSYLFDoMr7YS1pGBFs5BDgrZo8cnbEzrF8PpaIhigA9bZ0q9ua9GTBgq9BWX1QF7qqlCdMi@plus@H7D0B7UCX8C@slash@jhvMLyH0kam01gbkuqtjYpJxuhe0Jg93pLcNB7CZqpu0RTnnCOV0BY8OM0TAkgryO12cN0GgDVqm7M67XVMalhKgSSkwOL4Dw5cyOYdhudrUj4AQGudyUPj9Y1mGySXzRHDAIWXlxC@slash@qXOEw@plus@c6GvHEy73@plus@b4Jj83ealsnFQl39kir3BcBicL0p0L1AMeuVeWJ@slash@@plus@8gytYMR4iCh1Htb9H76NgycysZ7YlfyiD7SzZRq5OJiRNumadjQX8ZtG9hPPdQ9iUtCPrZTKJhjxM0v2@plus@Nwjwh6@plus@e2@slash@7nOQxNVt68L6onYDw7azLtyLzWobZXReiVh6RTjV74k0VSXgo86e@plus@nvMiVCaYbx@slash@0Unx6@plus@kEzFu@slash@aFghrUwtycvfS@slash@zvSdomU4m1efUpHje7CGqyoa94Jv3uOWo0pLqv8@slash@2VaoamGayamt9dH3ZTgzW@slash@QyGKCQ5xnSSyBX3JKcUsDCtk@slash@7RsCGtDEGVHSgHI6UmN3PBFNFJjH0Gx5ACUpgsDXWOj2GnGfYq@plus@xJfBrIJgEX3gow7dRKLzJUOCIy4n82z5fBhPNhk34tlfKti43tOSP8Y41Fm@plus@@plus@5M3HExCV@plus@bC2@plus@gv5neSPcnzxlfqV3Dkw11xiduRNAWNsDjv0eUiSnHCq0I7z4WMIyOeh@slash@02RHcbJ6p62yfgWomPHJ8oIr7BrsQ8Bim@slash@TyN9C")
+
     // AppConstant.showRetryAlert(() => {
     //   uniqueKey.current = Math.random();
     //   dispatch(
@@ -258,12 +261,276 @@ export default function ChooseYourPlan({ route }) {
       setShowLoader(false)
       if (resp.error == null) {
 
-        navigation.navigate('YourSelectedPlans', navigationInfo.current)
+        navigation.navigate('YourSelectedPlans', {
+          ...navigationInfo.current,
+          planSummary: resp?.data?.data
+        })
       }
     }
   }, [summaryResponse]);
 
-  AppConstant.showConsoleLog(AppConstant.getDrupalInfoToInnerApis())
+  // AppConstant.showConsoleLog(AppConstant.getDrupalInfoToInnerApis())
+
+  function bingePlanListLayout(item, index, isFixed = true) {
+    return <View style={{
+      marginTop: 15
+    }}>
+      <View style={{
+        flexDirection: 'row',
+        justifyContent: 'flex-start',
+      }}>
+        {item?.packType == "BS" &&
+          <Text style={{
+            marginLeft: 15,
+            lineHeight: 28,
+            borderRadius: 5,
+            width: 100,
+            textAlign: 'center',
+            alignSelf: 'flex-start',
+            backgroundColor: '#6b00dd',
+            // border-radius: 6px 6px 0px 0px;
+            // padding: 5px 5px 2px;
+            color: '#fff',
+            fontSize: 12,
+            fontWeight: '600',
+            bottom: -4
+          }}>
+            Binge Bestseller
+          </Text>
+        }
+        {item?.isCurrentPlan != null &&
+          <Text style={{
+            marginLeft: item?.packType == "BS" ? 10 : 15,
+            lineHeight: 28,
+            borderRadius: 5,
+            width: 90,
+            textAlign: 'center',
+            alignSelf: 'flex-start',
+            backgroundColor: '#6b00dd',
+            // border-radius: 6px 6px 0px 0px;
+            // padding: 5px 5px 2px;
+            color: '#fff',
+            fontSize: 12,
+            fontWeight: '600',
+            bottom: -4
+          }}>
+            Current Plan
+          </Text>
+        }
+      </View>
+
+      <TouchableOpacity
+        activeOpacity={1}
+        key={`${item?.packId ?? ""}_bingePlanList_${index}`}
+        style={{
+          width: '100%',
+          // marginTop: 15,
+          backgroundColor: '#efe8fb',
+          borderRadius: 10,
+          paddingHorizontal: 13,
+          paddingVertical: 16
+        }}
+        onPress={() => {
+          if (item?.dminusX && item?.isCurrentPlan && !isFixed) {
+            return
+          }
+          navigationInfo.current = { selectedApps: item?.appList?.BUCKET1, packPrice: item.packPrice, item, type: 'Fixed' }
+          AppConstant.showConsoleLog(item)
+
+          if (item?.tenureList?.length > 1) {
+            navigation.navigate('TenureListSelect', { appList: item?.appList, packPrice: item.packPrice, item, type: 'Fixed' })
+            return
+          }
+          AppConstant.showRetryAlert(() => {
+            setShowLoader(true)
+            uniqueKey.current = Math.random();
+            dispatch(
+              savePacksApi({
+                uniqueKey: uniqueKey.current,
+                body: {
+                  appwithBucket: {},
+                  journeySource: "CYOP",
+                  packId: item.packId,
+                  packages: item.packName,
+                  productClass: item.productClass,
+                  tenure: item?.tenureInfo?.[0]?.tenure ?? ''
+                },
+              }),
+            );
+          });
+        }}
+      >
+        <View style={{
+          flexDirection: 'row',
+          alignItems: 'center'
+        }}>
+          {
+            AppConstant.getDrupalInfoToInnerApis()?.field_crownImg != null &&
+            // <Image
+            //   style={{
+            //     width: 25,
+            //     height: 25,
+            //     resizeMode: 'cover',
+            //     backgroundColor: 'red'
+            //   }}
+            //   source={{ uri: AppConstant.getDrupalInfoToInnerApis()?.field_crownImg }}
+            // // resizeMode="cover"
+            // />
+            <SvgUri
+              width="25"
+              height="25"
+              uri={AppConstant.getDrupalInfoToInnerApis()?.field_crownImg}
+            // uri="https://uatmanageapps.tataplay.com/cms-assets/images/crownBg.svg"
+            />
+          }
+
+          <Text style={{
+            flex: 1,
+            fontSize: 16,
+            color: "#220046",
+            // fontWeight: 'bold',
+            textAlign: 'left',
+            marginLeft: 10
+          }}>{item?.packName}</Text>
+
+          <Text style={{
+            fontSize: 18,
+            color: "#220046",
+            fontWeight: 'bold',
+            textAlign: 'right',
+            marginLeft: 10
+          }}>
+            {'₹' + item?.packPrice}
+            <Text style={{
+              fontSize: 15,
+              color: "#220046",
+              fontWeight: '500',
+              textAlign: 'left',
+            }}>{' /' + item?.tenureType}
+            </Text>
+          </Text>
+
+        </View>
+
+        <Text style={{
+          marginTop: 10,
+          fontSize: 15,
+          color: "#220046",
+          textAlign: 'left',
+          fontWeight: '500',
+        }}>
+          <Text style={{
+            fontSize: 18,
+            fontWeight: 'bold',
+          }}>
+            {`${item?.appList?.BUCKET1?.length}`}
+          </Text>
+          {' apps | upto '}
+          <Text style={{
+            fontSize: 18,
+            fontWeight: 'bold',
+          }}>
+            {`${item?.totalDevices}`}
+          </Text>
+          {' devices at a time'}
+        </Text>
+
+        {
+          item?.deviceListInfo != null &&
+          <View style={{
+            flexDirection: 'row',
+            alignItems: 'center',
+            marginTop: 10
+          }}>
+            {
+              item?.deviceListInfo?.img != null &&
+              // <Image
+              //   style={{
+              //     width: 40,
+              //     height: 25,
+              //     resizeMode: 'cover',
+              //     backgroundColor: 'red'
+              //   }}
+              //   source={{ uri: item?.deviceListInfo?.img }}
+              // // resizeMode="cover"
+              // />
+              <SvgUri
+                width="40"
+                height="25"
+                uri={item?.deviceListInfo?.img}
+              />
+            }
+
+            <Text style={{
+              flex: 1,
+              fontSize: 15,
+              color: "#220046",
+              fontWeight: '600',
+              textAlign: 'left',
+              marginLeft: 10
+            }}>{`Watch on ${item?.deviceListInfo?.title}`}</Text>
+          </View>
+        }
+
+        <View style={{
+          flexDirection: 'row',
+          flexWrap: 'wrap'
+        }}>
+          {
+            item?.appList?.BUCKET1?.map((applistItem, index) => {
+              return <Image
+                key={`${applistItem?.appID}_${index}`}
+                style={{
+                  marginTop: 15,
+                  marginLeft: index % 5 == 0 ? 0 : 15,
+                  width: appIconsWidths,
+                  height: appIconsWidths,
+                  resizeMode: 'cover',
+                  // backgroundColor: 'red'
+                }}
+                source={{ uri: serviceConsts.baseUrls.imageBaseUrl + applistItem?.appId + '.png' }}
+              // resizeMode="cover"
+              />
+            }
+            )
+          }
+        </View>
+
+        {
+          item?.belowMsg != "" &&
+          <Text style={{
+            width: '100%',
+            fontSize: 12,
+            color: "#220046",
+            fontWeight: '500',
+            textAlign: 'left',
+            marginTop: 10,
+            lineHeight: 20
+          }}>{item?.belowMsg}</Text>
+        }
+
+        {
+          // (!item?.dminusX || !item?.isCurrentPlan || isFixed) &&
+          (!item?.isCurrentPlan || isFixed) &&
+          <Text style={{
+            marginTop: 10,
+            backgroundColor: '#e10092',
+            color: '#ffffff',
+            fontWeight: '700',
+            width: '100%',
+            textAlign: 'center',
+            lineHeight: 40,
+            fontSize: 16,
+            borderRadius: 4
+          }}>
+            Choose Plan
+          </Text>
+        }
+
+      </TouchableOpacity>
+    </View>
+  }
+
   return (
     <View style={{
       width: AppConstant.dimension.width,
@@ -283,7 +550,7 @@ export default function ChooseYourPlan({ route }) {
             />
 
           </View>
-          <View style={{ backgroundColor: 'black', paddingHorizontal: 20, paddingBottom: 20 }}>
+          <View style={{ backgroundColor: 'black', paddingHorizontal: 20, paddingBottom: 100 }}>
 
             {
               flexiPlanList.length > 0 &&
@@ -317,9 +584,12 @@ export default function ChooseYourPlan({ route }) {
                   </View>
                 }
 
-                {flexiPlanList?.map((item, index) =>
+                {flexiPlanList?.map((item, index) => {
 
-                  <TouchableOpacity
+                  if (item.isCurrentPlan) {
+                    return bingePlanListLayout(item, index, false)
+                  }
+                  return <TouchableOpacity
                     activeOpacity={1}
                     key={`${item?.packId ?? ""}_flexiplanList_${index}`}
                     style={{
@@ -360,14 +630,17 @@ export default function ChooseYourPlan({ route }) {
                       source={{ uri: serviceConsts.baseUrls.showPlanImage(item?.packPrice) }}
                       resizeMode='contain'
                     />
-                  </TouchableOpacity>)}
+                  </TouchableOpacity>
+                }
+                )
+                }
               </View>
             }
 
             {
               bingePlanList.length > 0 &&
               <View style={{
-                marginTop: 16
+                marginTop: 16,
               }}>
                 {
                   AppConstant.getDrupalInfoToInnerApis()?.bingePlans?.title != null &&
@@ -398,212 +671,7 @@ export default function ChooseYourPlan({ route }) {
 
                 {bingePlanList?.map((item, index) =>
 
-                  <TouchableOpacity
-                    activeOpacity={1}
-                    key={`${item?.packId ?? ""}_bingePlanList_${index}`}
-                    style={{
-                      width: '100%',
-                      marginTop: 15,
-                      backgroundColor: '#efe8fb',
-                      borderRadius: 10,
-                      paddingHorizontal: 13,
-                      paddingVertical: 16
-                    }}
-                    onPress={() => {
-                      // navigation.navigate('SelectPlans', { appList: item?.appList, packPrice: item.packPrice, item, type: 'Fixed' })
-                      // const selectedAppsData = appList.filter(app => selectedApps.includes(app.appName));
-                      // navigation.navigate('YourSelectedPlans', { appList: item?.appList, packPrice: item.packPrice, item, type: 'Fixed' })
-
-
-                      navigationInfo.current = { selectedApps: item?.appList?.BUCKET1, packPrice: item.packPrice, item, type: 'Fixed' }
-                      AppConstant.showConsoleLog(item)
-                      AppConstant.showRetryAlert(() => {
-                        setShowLoader(true)
-                        uniqueKey.current = Math.random();
-                        dispatch(
-                          savePacksApi({
-                            uniqueKey: uniqueKey.current,
-                            body: {
-                              appwithBucket: {},
-                              journeySource: "CYOP",
-                              packId: item.packId,
-                              packages: item.packName,
-                              productClass: item.productClass,
-                              tenure: item?.tenureInfo?.[0]?.tenure ?? ''
-                            },
-                          }),
-                        );
-                      });
-
-                      // navigation.navigate('YourSelectedPlans', { selectedApps: item?.appList?.BUCKET1, packPrice: item.packPrice, item, type: 'Fixed' })
-                    }}
-                  >
-
-                    <View style={{
-                      flexDirection: 'row',
-                      alignItems: 'center'
-                    }}>
-                      {
-                        AppConstant.getDrupalInfoToInnerApis()?.field_crownImg != null &&
-                        // <Image
-                        //   style={{
-                        //     width: 25,
-                        //     height: 25,
-                        //     resizeMode: 'cover',
-                        //     backgroundColor: 'red'
-                        //   }}
-                        //   source={{ uri: AppConstant.getDrupalInfoToInnerApis()?.field_crownImg }}
-                        // // resizeMode="cover"
-                        // />
-                        <SvgUri
-                          width="25"
-                          height="25"
-                          uri={AppConstant.getDrupalInfoToInnerApis()?.field_crownImg}
-                        // uri="https://uatmanageapps.tataplay.com/cms-assets/images/crownBg.svg"
-                        />
-                      }
-
-                      <Text style={{
-                        flex: 1,
-                        fontSize: 16,
-                        color: "#220046",
-                        // fontWeight: 'bold',
-                        textAlign: 'left',
-                        marginLeft: 10
-                      }}>{item?.packName}</Text>
-
-                      <Text style={{
-                        fontSize: 18,
-                        color: "#220046",
-                        fontWeight: 'bold',
-                        textAlign: 'right',
-                        marginLeft: 10
-                      }}>
-                        {'₹' + item?.packPrice}
-                        <Text style={{
-                          fontSize: 15,
-                          color: "#220046",
-                          fontWeight: '500',
-                          textAlign: 'left',
-                        }}>{' /' + item?.tenureType}
-                        </Text>
-                      </Text>
-
-                    </View>
-
-                    <Text style={{
-                      marginTop: 10,
-                      fontSize: 15,
-                      color: "#220046",
-                      textAlign: 'left',
-                      fontWeight: '500',
-                    }}>
-                      <Text style={{
-                        fontSize: 18,
-                        fontWeight: 'bold',
-                      }}>
-                        {`${item?.appList?.BUCKET1?.length}`}
-                      </Text>
-                      {' apps | upto '}
-                      <Text style={{
-                        fontSize: 18,
-                        fontWeight: 'bold',
-                      }}>
-                        {`${item?.totalDevices}`}
-                      </Text>
-                      {' devices at a time'}
-                    </Text>
-
-                    {
-                      item?.deviceListInfo != null &&
-                      <View style={{
-                        flexDirection: 'row',
-                        alignItems: 'center',
-                        marginTop: 10
-                      }}>
-                        {
-                          item?.deviceListInfo?.img != null &&
-                          // <Image
-                          //   style={{
-                          //     width: 40,
-                          //     height: 25,
-                          //     resizeMode: 'cover',
-                          //     backgroundColor: 'red'
-                          //   }}
-                          //   source={{ uri: item?.deviceListInfo?.img }}
-                          // // resizeMode="cover"
-                          // />
-                          <SvgUri
-                            width="40"
-                            height="25"
-                            uri={item?.deviceListInfo?.img}
-                          />
-                        }
-
-                        <Text style={{
-                          flex: 1,
-                          fontSize: 15,
-                          color: "#220046",
-                          fontWeight: '600',
-                          textAlign: 'left',
-                          marginLeft: 10
-                        }}>{`Watch on ${item?.deviceListInfo?.title}`}</Text>
-                      </View>
-                    }
-
-                    <View style={{
-                      flexDirection: 'row',
-                      flexWrap: 'wrap'
-                    }}>
-                      {
-                        item?.appList?.BUCKET1?.map((applistItem, index) => {
-                          return <Image
-                            key={`${applistItem?.appID}_${index}`}
-                            style={{
-                              marginTop: 15,
-                              marginLeft: index % 5 == 0 ? 0 : 15,
-                              width: appIconsWidths,
-                              height: appIconsWidths,
-                              resizeMode: 'cover',
-                              // backgroundColor: 'red'
-                            }}
-                            source={{ uri: serviceConsts.baseUrls.imageBaseUrl + applistItem?.appId + '.png' }}
-                          // resizeMode="cover"
-                          />
-                        }
-                        )
-                      }
-                    </View>
-
-                    {
-                      item?.belowMsg != "" &&
-                      <Text style={{
-                        width: '100%',
-                        fontSize: 12,
-                        color: "#220046",
-                        fontWeight: '500',
-                        textAlign: 'left',
-                        marginTop: 10,
-                        lineHeight: 20
-                      }}>{item?.belowMsg}</Text>
-                    }
-
-                    <Text style={{
-                      marginTop: 10,
-                      backgroundColor: '#e10092',
-                      color: '#ffffff',
-                      fontWeight: '700',
-                      width: '100%',
-                      textAlign: 'center',
-                      lineHeight: 40,
-                      fontSize: 16,
-                      borderRadius: 4
-                    }}>
-                      Choose Plan
-                    </Text>
-
-
-                  </TouchableOpacity>
+                  bingePlanListLayout(item, index)
                 )}
 
               </View>

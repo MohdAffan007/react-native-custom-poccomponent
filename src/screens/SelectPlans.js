@@ -121,7 +121,10 @@ export default function SelectPlans({ route }) {
       setShowLoader(false)
       if (resp.error == null) {
 
-        navigation.navigate('YourSelectedPlans', navigationInfo.current)
+        navigation.navigate('YourSelectedPlans', {
+          ...navigationInfo.current,
+          planSummary: resp?.data?.data
+        })
       }
     }
   }, [summaryResponse]);

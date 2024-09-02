@@ -6,8 +6,9 @@ import { serviceConsts } from '../services/serviceCommonHandler';
 import { SvgUri } from 'react-native-svg';
 
 const appIconsWidths = ((AppConstant.dimension.width - 40 - 36 - (4 * 15)) / 5)
+
 export default function YourSelectedPlans({ route }) {
-  const { selectedApps, selectedAppsJson, packPrice } = route.params;
+  const { selectedApps, selectedAppsJson, packPrice, planSummary } = route.params;
   console.log(selectedApps, 'selectedAppsssss')
   const { TestConnectNative } = NativeModules
   const rootTag = route?.params?.rootTag;
@@ -63,7 +64,7 @@ export default function YourSelectedPlans({ route }) {
     if (Platform.OS == 'ios') {
       TestConnectNative?.goToSecondViewController?.(rootTag, JSON.stringify([]));
     } else {
-      Connectivity?.goToSecondActivity(JSON.stringify([]))
+      Connectivity?.goToSecondActivity(JSON.stringify(planSummary))
         .then(response => {
           console.log('Navigation success:', response);
         })
@@ -77,7 +78,9 @@ export default function YourSelectedPlans({ route }) {
   // const selectedAppsJson = JSON.stringify(selectedAppsDataIos);
   // TestConnectNative?.goToSecondViewController?.(rootTag, selectedAppsJson);
   return (
-    <View style={[{ backgroundColor: 'black', paddingHorizontal: 20, flexGrow: 1, width: '100%', }]}>
+    <View style={[{
+      backgroundColor: 'black', flexGrow: 1, width: '100%',
+    }]}>
 
       <ScrollView style={{
         width: '100%',
@@ -86,6 +89,7 @@ export default function YourSelectedPlans({ route }) {
         bounces={false}
         contentContainerStyle={{
           flexGrow: 1,
+          paddingHorizontal: 20
           // justifyContent: 'flex-end',
         }}>
 
@@ -251,16 +255,159 @@ export default function YourSelectedPlans({ route }) {
 
 
         </View>
+        {
+          (planSummary?.userAction != null && !["UPGRADE", "UPGRADE_COMVIVA"].includes(planSummary?.userAction)) &&
+          <Text style={{
+            width: '100%',
+            marginTop: 10,
+            color: '#d6c6f4',
+            fontSize: 13,
+            fontWeight: '400',
+            textAlign: 'left'
+          }}>
+            {`Plan change will be effective from ${planSummary?.planDate}`}
+          </Text>
+        }
 
       </ScrollView>
 
-      <View style={[styles.enabledButton, { flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 25 }]} >
-        <Text style={{ color: 'white' }}>₹{packPrice}/month</Text>
-        <TouchableOpacity onPress={handleConfirm} style={{ backgroundColor: 'purple', padding: 10, borderRadius: 4 }} >
-          <Text style={{ color: 'white' }}>Confirm & Proceed</Text>
-        </TouchableOpacity>
+      {
+        (planSummary == null || planSummary?.userAction == null || !["UPGRADE", "UPGRADE_COMVIVA"].includes(planSummary?.userAction)) ?
+          <View style={[styles.enabledButton, { flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 25 }]} >
+            <Text style={{ color: 'white' }}>₹{packPrice}/month</Text>
+            <TouchableOpacity onPress={handleConfirm} style={{ backgroundColor: 'purple', padding: 10, borderRadius: 4 }} >
+              <Text style={{ color: 'white' }}>Confirm & Proceed</Text>
+            </TouchableOpacity>
 
-      </View>
+          </View>
+          :
+          <View style={{
+            backgroundColor: 'rgba(29, 0, 61, 100)',
+            alignItems: 'center',
+            borderRadius: 3,
+            paddingVertical: 10,
+            justifyContent: 'center',
+            paddingHorizontal: 25
+          }} >
+
+            <View style={{
+              width: '100%',
+              flexDirection: 'row'
+            }}>
+              <Text style={{
+                flex: 1,
+                color: '#ffffff',
+                fontSize: 16,
+                fontWeight: '500'
+              }}>
+                Plan Amount
+              </Text>
+
+              <Text style={{
+                color: '#ffffff',
+                fontSize: 16,
+                fontWeight: '500'
+              }}>
+                {`₹${packPrice}`}
+              </Text>
+            </View>
+
+            {
+              planSummary?.currentBalance > 0 &&
+              <View style={{
+                marginTop: 10,
+                width: '100%',
+                flexDirection: 'row'
+              }}>
+                <Text style={{
+                  flex: 1,
+                  color: '#8e81a1',
+                  fontSize: 16,
+                  fontWeight: '500'
+                }}>
+                  Current Balance
+                </Text>
+
+                <Text style={{
+                  color: '#8e81a1',
+                  fontSize: 16,
+                  fontWeight: '500'
+                }}>
+                  {`-₹${planSummary?.currentBalance}`}
+                </Text>
+              </View>
+            }
+
+            <View style={{
+              width: '100%',
+              height: 1,
+              marginVertical: 10,
+              backgroundColor: '#564372'
+            }} />
+
+            <View style={{
+              width: '100%',
+              flexDirection: 'row'
+            }}>
+              <Text style={{
+                flex: 1,
+                color: '#ffffff',
+                fontSize: 16,
+                fontWeight: '500'
+              }}>
+                Payable Amount
+              </Text>
+
+              <Text style={{
+                color: '#ffffff',
+                fontSize: 20,
+                fontWeight: 'bold'
+              }}>
+                {`₹${planSummary?.payableAmount}`}
+
+                <Text style={{
+                  color: '#ffffff',
+                  fontSize: 16,
+                  fontWeight: '400'
+                }}>
+                  {
+                    (planSummary?.shortTenure == 'month' && ' / month') ||
+                    (planSummary?.shortTenure == 'quarter' && ' / 3 month') ||
+                    (planSummary?.shortTenure == 'year' && ' / year') ||
+                    ` / ${planSummary?.tenure}`
+                  }
+                </Text>
+              </Text>
+            </View>
+
+            <Text style={{
+              width: '100%',
+              marginTop: 10,
+              color: '#ffffff',
+              fontSize: 12,
+              fontWeight: '400',
+              textAlign: 'left'
+            }}>
+              {`You will be charged ₹${planSummary?.planAmount} from ${planSummary?.planDate} onwards`}
+            </Text>
+
+            <TouchableOpacity onPress={handleConfirm} style={{
+              marginTop: 15,
+              width: '100%',
+              alignItems: 'center',
+              justifyContent: 'center',
+              height: 44,
+              backgroundColor: '#e10092', padding: 10, borderRadius: 4
+            }} >
+              <Text style={{
+                color: 'white', fontSize: 16,
+                fontWeight: '500',
+              }}>Proceed</Text>
+            </TouchableOpacity>
+
+          </View>
+      }
+
 
     </View>
   );

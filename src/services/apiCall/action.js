@@ -76,9 +76,10 @@ export const createSessionDrupalInfo = payload => dispatch => {
     const createSessionApi = FetchApi(`${serviceConsts.baseUrls.baseUrl}${serviceConsts.baseUrls.auth}${serviceConsts.endPoints.createSession}`, options);
     const drupalTextInfoApi = FetchApi(`${serviceConsts.baseUrls.drupalApi}${serviceConsts.endPoints.drupalTextInfo}`, options);
     const drupalOtherInfoApi = FetchApi(`${serviceConsts.baseUrls.drupalApi}${serviceConsts.endPoints.drupalOtherInfo}`, options);
+    const drupalOtherInfo2Api = FetchApi(`${serviceConsts.baseUrls.drupalApi}${serviceConsts.endPoints.drupalOtherInfo2}`, options);
 
 
-    FetchAllSettledApi([createSessionApi, drupalTextInfoApi, drupalOtherInfoApi])
+    FetchAllSettledApi([createSessionApi, drupalTextInfoApi, drupalOtherInfoApi, drupalOtherInfo2Api])
         // FetchApi(upiServiceUrl, options)
         .then(response => {
 
@@ -100,6 +101,12 @@ export const createSessionDrupalInfo = payload => dispatch => {
                 drupalInfoToInnerApis.bingePlans = jsonData?.myop?.bingePlans ?? null;
                 drupalInfoToInnerApis.flexiPlans = jsonData?.myop?.flexiPlans ?? null;
                 drupalInfoToInnerApis.bannerSection = jsonData?.bannerSection ?? null;
+            }
+            if (response[3]?.value?.data?.field_json_data) {
+                const jsonData = response[3]?.value?.data?.field_json_data;
+                drupalInfoToInnerApis.monthly_image = jsonData?.monthly_image?.url ?? null;
+                drupalInfoToInnerApis.quarterly_image = jsonData?.quarterly_image?.url ?? null;
+                drupalInfoToInnerApis.yearly_image = jsonData?.yearly_image?.url ?? null;
             }
 
             if (Object.keys(drupalInfoToInnerApis).length == 0) {

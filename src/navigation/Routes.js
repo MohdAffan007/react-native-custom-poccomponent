@@ -6,6 +6,7 @@ import { Button, Image, Text, BackHandler, TouchableOpacity, NativeModules, Plat
 import SelectPlans from '../screens/SelectPlans';
 import YourSelectedPlans from '../screens/YourSelectedPlans';
 import { useNavigation } from '@react-navigation/native';
+import TenureListSelect from '../screens/TenureListSelect';
 
 const Stack = createNativeStackNavigator();
 const handleBackButton = () => {
@@ -38,6 +39,27 @@ const Routes = ({ rootTag, androidProps }) => {
           </>
         ),
       }} />
+
+      <Stack.Screen initialParams={{ rootTag }} name="TenureListSelect" component={TenureListSelect}
+        options={({ route }) => ({
+          headerTitle: route?.params?.item?.packName ?? "",
+          headerTitleStyle: { color: 'white' },
+          headerStyle: { backgroundColor: 'black' },
+          headerLeft: () => (
+            <>
+              <TouchableOpacity onPress={() => {
+                navigation.goBack()
+              }}>
+                <Image
+                  source={require('../assets/png/arrowBack.png')}
+                  style={{ width: 25, height: 25, marginRight: 10 }}
+                />
+              </TouchableOpacity>
+            </>
+          ),
+        })}
+      />
+
       <Stack.Screen initialParams={{ rootTag }} name="SelectPlans" component={SelectPlans}
         // options={{
         //   headerTitle: 'Click to choose any 6 Apps',

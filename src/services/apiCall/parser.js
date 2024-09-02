@@ -1,4 +1,5 @@
 import { AppConstant } from "../../assets/AppConstant";
+import { jsonCopy } from "../../utils/string";
 
 
 export const parseOrderDetail = ({ data = {} }) => {
@@ -7,13 +8,27 @@ export const parseOrderDetail = ({ data = {} }) => {
     let flexiPlans = [];
     let bingePlans = [];
 
-    flexiPlans = data?.productList?.filter(item => item.showPlan && item?.productType == 'Flexi')?.map(item => {
+    flexiPlans = data?.productList?.filter(item => item.showPlan && item?.productType == 'Flexi')?.map(flexiItem => {
 
+        let item = jsonCopy(flexiItem);
+        const tenureList = data?.tenuresList?.[item?.productClass]?.filter(tenureItem => tenureItem?.packId == item?.packId)
+        if (data?.userExistingPacks?.userProductId == item?.packId) {
+            item.appList = data?.userExistingPacks?.appList;
+            item.isCurrentPlan = true
+            item.currentPlanPackId = data?.userExistingPacks?.userProductId
+
+            item.currentPlanPackIdIndex = tenureList.findIndex(tenureItemFindIndex => data?.userExistingPacks?.userProductId == tenureItemFindIndex.packId)
+        }
         let isAmazon = false;
         let isSunNext = false;
 
         isAmazon = item?.appList?.BUCKET1?.filter(innerItem => innerItem?.appName == "Prime")?.length > 0
         isSunNext = item?.appList?.BUCKET1?.filter(innerItem => innerItem?.appName == "SunNxt")?.length > 0
+
+        // let recommendedPlan = [];
+        // let moreInBinge = [];
+        // recommendedPlan = item?.appList?.BUCKET1?.filter(innerItem => innerItem?.recommendedApps)
+        // moreInBinge = item?.appList?.BUCKET1?.filter(innerItem => !innerItem?.recommendedApps)
 
         let belowMsg = ""
         if (isAmazon && AppConstant.getDrupalInfoToInnerApis().primeText != null) {
@@ -44,19 +59,36 @@ export const parseOrderDetail = ({ data = {} }) => {
 
         return {
             ...item,
-            tenureInfo: data?.tenuresList?.[item?.productClass]?.filter(tenureItem => tenureItem?.packId == item?.packId),
+            dminusX: data?.dminusX ?? null,
+            tenureInfo: tenureList,
             deviceListInfo,
+            // recommendedPlan,
+            // moreInBinge,
             belowMsg: AppConstant.replaceAll(belowMsg, "#", "\n")
             // msg:item?.appOnTv
         }
     })
-    bingePlans = data?.productList?.filter(item => item.showPlan && item?.productType == 'Fixed')?.map(item => {
 
+    bingePlans = data?.productList?.filter(item => item.showPlan && item?.productType == 'Fixed')?.map(bingeItem => {
+
+        let item = jsonCopy(bingeItem);
+        const tenureList = data?.tenuresList?.[item?.productClass]?.filter(tenureItem => tenureItem?.packId == item?.packId)
+        if (data?.userExistingPacks?.userProductId == item?.packId) {
+            item.appList = data?.userExistingPacks?.appList;
+            item.isCurrentPlan = true
+            item.currentPlanPackId = data?.userExistingPacks?.userProductId
+            item.currentPlanPackIdIndex = tenureList.findIndex(tenureItemFindIndex => data?.userExistingPacks?.userProductId == tenureItemFindIndex.packId)
+        }
         let isAmazon = false;
         let isSunNext = false;
 
         isAmazon = item?.appList?.BUCKET1?.filter(innerItem => innerItem?.appName == "Prime")?.length > 0
         isSunNext = item?.appList?.BUCKET1?.filter(innerItem => innerItem?.appName == "SunNxt")?.length > 0
+
+        // let recommendedPlan = [];
+        // let moreInBinge = [];
+        // recommendedPlan = item?.appList?.BUCKET1?.filter(innerItem => innerItem?.recommendedApps)
+        // moreInBinge = item?.appList?.BUCKET1?.filter(innerItem => !innerItem?.recommendedApps)
 
         let belowMsg = ""
         if (isAmazon && AppConstant.getDrupalInfoToInnerApis().primeText != null) {
@@ -87,7 +119,11 @@ export const parseOrderDetail = ({ data = {} }) => {
         return {
             ...item,
             deviceListInfo,
-            tenureInfo: data?.tenuresList?.[item?.productClass]?.filter(tenureItem => tenureItem?.packId == item?.packId),
+            dminusX: data?.dminusX ?? null,
+            tenureInfo: tenureList,
+            // recommendedPlan,
+            // moreInBinge,
+            tenureList: data?.tenuresList?.[item?.productClass] ?? [],
             belowMsg: AppConstant.replaceAll(belowMsg, "#", "\n")
             // msg:item?.appOnTv
         }

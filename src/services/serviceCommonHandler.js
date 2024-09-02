@@ -21,6 +21,7 @@ export const serviceConsts = {
     pageSummary: "v1/BINGE_OTT/getSummaryPage/",
     drupalTextInfo: "manifest.json?v=29.0",
     drupalOtherInfo: "pick_your_price.json?v=10.0",
+    drupalOtherInfo2: "choose_your_tenure.json?v=10.0",
   },
 
   method: {
