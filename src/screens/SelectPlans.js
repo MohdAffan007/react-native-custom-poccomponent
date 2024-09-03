@@ -22,7 +22,7 @@ import { jsonCopy } from '../utils/string';
 import { CLEAR_PAGE_REDIRECTION_API_TYPE, CLEAR_PAGE_SUMMARY_API_TYPE, CLEAR_SAVE_PACKS_API_TYPE } from '../services/apiCall/constants';
 import { pageRedirectionApi, pageSummaryApi, savePacksApi } from '../services/apiCall/action';
 
-const appIconsWidths = ((AppConstant.dimension.width - 40 - (4 * 20)) / 3)
+const appIconsWidths = ((AppConstant.dimension.width - 40 - (4 * 20)) / 4)
 export default function SelectPlans({ route }) {
   const dispatch = useDispatch();
   const uniqueKey = useRef();
@@ -148,7 +148,7 @@ export default function SelectPlans({ route }) {
     const isSelected = selectedApps.includes(item.appName);
     return (
       <View style={{
-        marginLeft: index % 3 == 0 ? 0 : 20,
+        marginLeft: index % 4 == 0 ? 0 : 20,
         marginTop: 20,
         // backgroundColor: 'cyan',
         width: appIconsWidths,
@@ -224,7 +224,7 @@ export default function SelectPlans({ route }) {
           style={{
             // flexGrow: 1,
           }}
-          numColumns={3}
+          numColumns={4}
         />
 
 
