@@ -543,6 +543,12 @@ export default function ChooseYourPlan({ route }) {
             <FlatList
               data={staticList}
               horizontal
+              ItemSeparatorComponent={() => <View style={{
+                width: 1,
+                backgroundColor: '#ffffff66',
+                height: 110,
+                marginTop: 20
+              }} />}
               showsHorizontalScrollIndicator={false}
               keyExtractor={(item) => item.id}
               renderItem={renderItem}
@@ -718,15 +724,17 @@ const styles = StyleSheet.create({
   },
   listContainer: {
     paddingTop: 16,
-    alignSelf: 'center'
+    alignSelf: 'center',
+    paddingHorizontal: 15
   },
   item: {
     backgroundColor: 'rgba(34, 0, 70, 100)',
-    marginHorizontal: 10,
+    // marginHorizontal: 10,
     padding: 20,
     width: 150,
-    height: 150,
-    margin: 10
+    height: 130,
+    marginVertical: 10,
+    justifyContent: 'center'
   },
   itemApps: {
     borderRadius: 5,
@@ -750,8 +758,8 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   image: {
-    width: 50,
-    height: 50,
+    width: 38,
+    height: 38,
     borderRadius: 5,
     marginBottom: 20
   },
