@@ -68,7 +68,8 @@ export default function ChooseYourPlan({ route }) {
 
   useEffect(() => {
     // AppConstant.setUserAccessToken(androidProps)
-    AppConstant.setChecksumToken("f6LgKFlH4tOue7Rr7YtLBZgSRrnj0wf@slash@bz5@slash@y1rWs69@slash@Q7oS3u7h5JGYP2@slash@FAkdX4zonsS7jhG3BVHGg5JBsg4d8Py@plus@vIyiDKAi1wc8pwhp3lV8Lsa162cQkNMbo3FfRN8OQKwypyo2BC@slash@VraKhKPOBX4pEhsvJlwQZBK2CpfpLL@plus@9wbmA9sIKzYv4jpsP14cDr1WC8O17VVtfJTNHxbmNlyb4BLK@plus@3Ksj40nnNEwDcOjdfhrc5sL2AAPBsOoHsVy@plus@ff4s5tEj48fg3LH@slash@Y5DOX7QcVuKev4@slash@IFqiCtb7S3uzJHbRIYqTiQCaeppKJdc@slash@BlhK31LI4MSqjqeknTGTlKVnKwpRT5uaRLEbpSFFrt@plus@4I5UUs7fn@slash@3W9RAfVI5sNl@slash@FzQ8A@plus@eKBum7gTf0VOTLmoCTJNqPlQ0F4pTJj7Iac@slash@XdaEZBMSWBmJvWi@slash@OZq9oKoNA5r1BYSrTEg4ZUjNT@plus@cwSe6DvJhBogET8DRhSp@slash@eaOVIUA06a@plus@tCVwHWkiT3mstUwV0fHgmNZgSuajb8RRIVKtddsLVVKUzOGwzFF0HeLwK19TzhCFbaoo2mY3TQGoPlNjfeGJGWBhlbj3Ac3WiJX4sI3evRLXcwqgK9@plus@x1pLfHUOfCuXkNWka7n4rWXVTXHD5ZjfA5Zd2adntL7pN6lXc4t@plus@cQt7fA6U41MgvGZG4G4I5OtUMjL5NB0ykSL1b7lylp2MCNCeyVzn5P5fMH95FGiDwjF3H@slash@uBbjJlOoDvGAi5T6pBTO5VAKvDRUzccTEJX5sLb6C@slash@md5I9yfOmh1zPzXq288@slash@3D0SYknQcdMIF9iDApkrnSy3cD8U@plus@uEUNBDv@plus@iERVEZzRDevdSluVVRU@slash@JhCgH1pyVLKmhtfc")
+    AppConstant.setChecksumToken("3HJCB79jPM5Re0tpi48rJw38Ay8tK4zardUdX2zmXZeW7ly707raRtQ6yZMCYNBbWXLULMEZ@plus@25W@plus@x@slash@PqzEjsEDR1y5a@plus@9gXz7x36ugMVEJ8GiRPIxhP5IdT7VGcqijh1D@slash@KUc4vfwnc6Zl3mEmObR82jhLa7VeU9zk9Xm59Qy5J7wSb@plus@E8ISPNzOYzSzW9CpF3wQinG0JYS5@slash@bbqDEBSPFJC@plus@NkSjr4um7ctgDH1evF4oLXxOc3s6GDSpG4FAOjQGoPlNjfeGJGWBhlbj3Ac9pnoLjnr8NwD35@slash@@plus@Tg6vSiwByQg76Wy1rOBJ2T@plus@ViJ@slash@qqlCdMi@plus@H7D0B7UCX8C@slash@jluCSKLdxRuRzcr2upc1qWSjEw88f3tZUa1RFKX6D0lxaRXlL536oeIAc7WJRutqX4nF9gZuko4bEe47dNBQksurM8micahPy2MHFvWhzTGNPsyIxGdmnQN6HpQ2YRBZG@plus@P4JjkeR5zrhp2TsMXvC3MTMnwAacPp0zA3MZ4Eqax713hzCFSyEGGwM03eqpC2wWBMpSyuzFlM3YR62iLP1jOa1@plus@BDPHRBjCrLDJXanu6wA8lH@plus@muDnB3t8tpcL4MuKV1hgfjzs3DyRHBRNd5Uc8MMtCNcVZLfhVst2Qs4DkS2gD7tsBr1p4uS2@plus@piVfFpKziahYmeZbPn9HODbrc3OwpDZdkjn9utDSzT0Lhwh8XKriBcI9Gy2iv5eMPRx68rqCpvCNHJZwpnZtUCfgYquCpy6GTMMnD8U6o6@plus@cdVtz80RoVsCWpNNRwexJcC4pgllGUV3MM2BaRM2m@slash@Elzx8wf5a1ZB@plus@eEVfP8J0OFcKD3GMGkHWFzI@slash@DANzmw6QEgqNhJCzg2uJFU@slash@t@plus@J8jBFYYFrWuzYFGBdRJ48i4GCI5ZLA42TBu13MNX@slash@KT7xpVQY0L60GKRFHSE@slash@E0E1nRZpsqzQV6@plus@XHdgKvgdJmyDSlWVGuzj2hZr1@plus@du79Ic2heWyvU8myt4ol0@slash@Fy978xwogNvn8hpDfhUk0UdXJGMS5OT1lNtFZ2EUgjHppVP8ow8zQ46Sw") //ankit number
+    // AppConstant.setChecksumToken("f6LgKFlH4tOue7Rr7YtLBZgSRrnj0wf@slash@bz5@slash@y1rWs69@slash@Q7oS3u7h5JGYP2@slash@FAkdX4zonsS7jhG3BVHGg5JBsg4d8Py@plus@vIyiDKAi1wc8pwhp3lV8Lsa162cQkNMbo3FfRN8OQKwypyo2BC@slash@VraKhKPOBX4pEhsvJlwQZBK2CpfpLL@plus@9wbmA9sIKzYv4jpsP14cDr1WC8O17VVtfJTNHxbmNlyb4BLK@plus@3Ksj40nnNEwDcOjdfhrc5sL2AAPBsOoHsVy@plus@ff4s5tEj48fg3LH@slash@Y5DOX7QcVuKev4@slash@IFqiCtb7S3uzJHbRIYqTiQCaeppKJdc@slash@BlhK31LI4MSqjqeknTGTlKVnKwpRT5uaRLEbpSFFrt@plus@4I5UUs7fn@slash@3W9RAfVI5sNl@slash@FzQ8A@plus@eKBum7gTf0VOTLmoCTJNqPlQ0F4pTJj7Iac@slash@XdaEZBMSWBmJvWi@slash@OZq9oKoNA5r1BYSrTEg4ZUjNT@plus@cwSe6DvJhBogET8DRhSp@slash@eaOVIUA06a@plus@tCVwHWkiT3mstUwV0fHgmNZgSuajb8RRIVKtddsLVVKUzOGwzFF0HeLwK19TzhCFbaoo2mY3TQGoPlNjfeGJGWBhlbj3Ac3WiJX4sI3evRLXcwqgK9@plus@x1pLfHUOfCuXkNWka7n4rWXVTXHD5ZjfA5Zd2adntL7pN6lXc4t@plus@cQt7fA6U41MgvGZG4G4I5OtUMjL5NB0ykSL1b7lylp2MCNCeyVzn5P5fMH95FGiDwjF3H@slash@uBbjJlOoDvGAi5T6pBTO5VAKvDRUzccTEJX5sLb6C@slash@md5I9yfOmh1zPzXq288@slash@3D0SYknQcdMIF9iDApkrnSy3cD8U@plus@uEUNBDv@plus@iERVEZzRDevdSluVVRU@slash@JhCgH1pyVLKmhtfc")
 
     // AppConstant.setChecksumToken("3HJCB79jPM5Re0tpi48rJw38Ay8tK4zardUdX2zmXZfUEqlrjoCob@slash@e6D03cgUXIieW6@plus@R@slash@OpUObqz1vcABvcXHYheSUzviw@slash@WJyUOfsJg5C1h6HYhkmVD@slash@DQ35IENy@plus@awO0er0esX7q0J8ARZ@slash@z7OshVckh@plus@bLhu6yb3dEsmEg0xAX2qVtCWLDw9Z2SYxnIki@slash@f7iKNgR5kf085PMQYmoF6r@slash@@slash@dafqXs@slash@z4RSIrnWrA9kagk1sRdjwRi7Oos@plus@40BSYLFDoMr7YS1pGBFs5BDgrZo8cnbEzrF8PpaIhigA9bZ0q9ua9GTBgq9BWX1QF7qqlCdMi@plus@H7D0B7UCX8C@slash@jhvMLyH0kam01gbkuqtjYpJxuhe0Jg93pLcNB7CZqpu0RTnnCOV0BY8OM0TAkgryO12cN0GgDVqm7M67XVMalhKgSSkwOL4Dw5cyOYdhudrUj4AQGudyUPj9Y1mGySXzRHDAIWXlxC@slash@qXOEw@plus@c6GvHEy73@plus@b4Jj83ealsnFQl39kir3BcBicL0p0L1AMeuVeWJ@slash@@plus@8gytYMR4iCh1Htb9H76NgycysZ7YlfyiD7SzZRq5OJiRNumadjQX8ZtG9hPPdQ9iUtCPrZTKJhjxM0v2@plus@Nwjwh6@plus@e2@slash@7nOQxNVt68L6onYDw7azLtyLzWobZXReiVh6RTjV74k0VSXgo86e@plus@nvMiVCaYbx@slash@0Unx6@plus@kEzFu@slash@aFghrUwtycvfS@slash@zvSdomU4m1efUpHje7CGqyoa94Jv3uOWo0pLqv8@slash@2VaoamGayamt9dH3ZTgzW@slash@QyGKCQ5xnSSyBX3JKcUsDCtk@slash@7RsCGtDEGVHSgHI6UmN3PBFNFJjH0Gx5ACUpgsDXWOj2GnGfYq@plus@xJfBrIJgEX3gow7dRKLzJUOCIy4n82z5fBhPNhk34tlfKti43tOSP8Y41Fm@plus@@plus@5M3HExCV@plus@bC2@plus@gv5neSPcnzxlfqV3Dkw11xiduRNAWNsDjv0eUiSnHCq0I7z4WMIyOeh@slash@02RHcbJ6p62yfgWomPHJ8oIr7BrsQ8Bim@slash@TyN9C")
 
@@ -546,7 +547,7 @@ export default function ChooseYourPlan({ route }) {
               ItemSeparatorComponent={() => <View style={{
                 width: 1,
                 backgroundColor: '#ffffff66',
-                height: 110,
+                height: 90,
                 marginTop: 20
               }} />}
               showsHorizontalScrollIndicator={false}
@@ -725,14 +726,14 @@ const styles = StyleSheet.create({
   listContainer: {
     paddingTop: 16,
     alignSelf: 'center',
-    paddingHorizontal: 15
+    paddingHorizontal: 20
   },
   item: {
     backgroundColor: 'rgba(34, 0, 70, 100)',
     // marginHorizontal: 10,
-    padding: 20,
+    padding: 15,
     width: 150,
-    height: 130,
+    height: 110,
     marginVertical: 10,
     justifyContent: 'center'
   },
@@ -761,7 +762,7 @@ const styles = StyleSheet.create({
     width: 38,
     height: 38,
     borderRadius: 5,
-    marginBottom: 20
+    marginBottom: 15
   },
   imageFlexi: {
     width: '100%',
